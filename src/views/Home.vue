@@ -9,14 +9,12 @@
 <script>
 import HomePage from '@/components/HomePage';
 import HomeDetails from '@/components/HomeDetails';
-import Politics from '@/components/Politics';
 
 export default {
     name: 'home',
     components: {
         HomePage,
-        HomeDetails,
-        Politics
+        HomeDetails
     }
 };
 </script>

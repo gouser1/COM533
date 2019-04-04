@@ -5,19 +5,22 @@
       rel="stylesheet"
     >
     <navigation></navigation>
+
     <v-content transition="slide-x-transition">
       <router-view></router-view>
+      <politics></politics>
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Navigation from '@/components/Navigation';
-
+import Politics from '@/components/Politics';
 export default {
     name: 'App',
     components: {
-        Navigation
+        Navigation,
+        Politics
     }
 };
 </script>

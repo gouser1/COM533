@@ -7,8 +7,7 @@ Vue.use(Router);
 export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
-    routes: [
-        {
+    routes: [{
             path: '/',
             name: 'home',
             component: Home
@@ -16,11 +15,38 @@ export default new Router({
         {
             path: '/about',
             name: 'about',
-            // route level code-splitting
-            // this generates a separate chunk (about.[hash].js) for this route
-            // which is lazy-loaded when the route is visited.
             component: () =>
-                import(/* webpackChunkName: "about" */ './views/About.vue')
+                import('./views/About.vue')
+        },
+        {
+            path: '/politics',
+            name: 'politics',
+            component: () =>
+                import('./views/Politics.vue')
+        },
+        {
+            path: '/entertainment',
+            name: 'entertainment',
+            component: () =>
+                import('./views/Entertainment.vue')
+        },
+        {
+            path: '/technology',
+            name: 'technology',
+            component: () =>
+                import('./views/Technology.vue')
+        },
+        {
+            path: '/science',
+            name: 'science',
+            component: () =>
+                import('./views/Science.vue')
+        },
+        {
+            path: '/sport',
+            name: 'sport',
+            component: () =>
+                import('./views/Sport.vue')
         }
     ]
 });

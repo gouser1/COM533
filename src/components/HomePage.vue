@@ -1,13 +1,12 @@
 <template>
   <v-container fluid fill-height class="home-page" style="max-height:100vh;">
     <v-layout justify-center align-center column pa-5>
-      <div class="display-4 font-weight-black white--text text-xs-center">JORDANSTOWN ECHO</div>
+      <div class="display-4 font-weight-black white--text text-md-center">JORDANSTOWN ECHO</div>
       <div
-        class="display-1 font-weight-bold white--text text-xs-center"
+        class="display-1 font-weight-bold white--text text-md-center"
       >Bringing you the latest news from across the world</div>
-      <v-btn fab class="mt-5" color="#0D1514">
-        <v-icon large color="white">arrow_downward</v-icon>
-      </v-btn>
+
+      <v-icon large color="white">arrow_downward</v-icon>
     </v-layout>
   </v-container>
 </template>
