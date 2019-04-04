@@ -1,6 +1,6 @@
 <template>
   <span>
-    <v-navigation-drawer app v-model="drawer" class="blue darken-2" dark disable-resize-watcher>
+    <v-navigation-drawer app color="#0D1514" v-model="drawer" disable-resize-watcher>
       <v-list>
         <template v-for="(item, index) in items">
           <v-list-tile :key="index">
@@ -10,7 +10,7 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app color="blue darken-2" dark>
+    <v-toolbar app color="#0D1514" dark>
       <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
       <v-toolbar-title>JORDANSTOWN ECHO</v-toolbar-title>
