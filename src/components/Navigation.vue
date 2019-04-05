@@ -16,7 +16,7 @@
       <router-link to="/">
         <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>
       </router-link>
-      <v-btn flat class="hidden-sm-and-down" to="/politics">Politics</v-btn>
+      <v-btn flat class="hidden-sm-and-down" to="/business">Business</v-btn>
       <v-btn flat class="hidden-sm-and-down" to="/entertainment">Entertainment</v-btn>
       <v-btn flat class="hidden-sm-and-down" to="/technology">Technology</v-btn>
       <v-btn flat class="hidden-sm-and-down" to="/science">Science</v-btn>

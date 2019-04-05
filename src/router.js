@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -13,16 +14,10 @@ export default new Router({
             component: Home
         },
         {
-            path: '/about',
-            name: 'about',
+            path: '/business',
+            name: 'business',
             component: () =>
-                import('./views/About.vue')
-        },
-        {
-            path: '/politics',
-            name: 'politics',
-            component: () =>
-                import('./views/Politics.vue')
+                import('./views/Business.vue')
         },
         {
             path: '/entertainment',
@@ -47,6 +42,6 @@ export default new Router({
             name: 'sport',
             component: () =>
                 import('./views/Sport.vue')
-        }
+        },
     ]
 });

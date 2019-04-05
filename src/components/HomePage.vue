@@ -1,9 +1,13 @@
 <template>
   <v-container fluid fill-height class="home-page" style="max-height:100vh;">
     <v-layout justify-center align-center column pa-5>
-      <div class="display-4 font-weight-black white--text text-md-center">JORDANSTOWN ECHO</div>
+      <div
+        class="display-4 font-weight-black white--text text-md-center"
+        data-aos="flip-up"
+      >JORDANSTOWN ECHO</div>
       <div
         class="display-1 font-weight-bold white--text text-md-center"
+        data-aos="flip-up"
       >Bringing you the latest news from across the world</div>
 
       <v-icon large color="white">arrow_downward</v-icon>

@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-md text-xs-center>
     <div>
-      <h2>Listing for Science</h2>
+      <h2>Listing for Business</h2>
       <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
         <v-tab v-for="article in articles" :key="article.id" ripple>Article</v-tab>
         <v-tab-item v-for="article in articles" :key="article.id">
@@ -29,7 +29,7 @@ export default {
     created() {
         axios
             .get(
-                'https://newsapi.org/v2/top-headlines?country=gb&category=science&pageSize=20&apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3'
+                'https://newsapi.org/v2/top-headlines?country=gb&category=business&pageSize=20&apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3'
             )
             .then(response => {
                 console.log(response);

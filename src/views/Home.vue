@@ -2,7 +2,6 @@
   <span>
     <home-page></home-page>
     <home-details></home-details>
-    <politics></politics>
   </span>
 </template>
 

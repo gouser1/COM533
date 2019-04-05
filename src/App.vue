@@ -16,6 +16,7 @@
 <script>
 import Navigation from '@/components/Navigation';
 import Politics from '@/components/Politics';
+import axios from 'axios';
 export default {
     name: 'App',
     components: {
