@@ -31,7 +31,7 @@
   </v-container>
 </template>
 
-<script>
+<!--<script>
 import axios from 'axios';
 export default {
     data: function() {
@@ -59,4 +59,4 @@ export default {
 </script>
 
 <style scoped>
-</style>
+</style> !-->

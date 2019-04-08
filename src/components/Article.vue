@@ -1,6 +1,5 @@
 <template>
   <v-container grid-list-lg>
-    <v-layout row></v-layout>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center font-weight-black my-5">
         <v-card>
