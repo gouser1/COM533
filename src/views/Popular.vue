@@ -36,7 +36,7 @@ export default {
     created() {
         axios
             .get(
-                'https://newsapi.org/v2/top-headlines?country=gb&category=science&pageSize=20&apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3'
+                'https://newsapi.org/v2/top-headlines?country=gb&sortBy=popularity&pageSize=20&apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3'
             )
             .then(response => {
                 console.log(response);

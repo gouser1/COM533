@@ -12,6 +12,8 @@ import "aos/dist/aos.css";
 
 Vue.config.productionTip = false;
 
+Vue.use(axios);
+
 new Vue({
     created() {
         AOS.init();

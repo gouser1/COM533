@@ -1,55 +1,59 @@
 <template>
-  <v-container grid-list-md text-xs-center>
-    <div>
-      <h2>Listing for Business</h2>
-      <v-tabs v-model="active" color="cyan" dark slider-color="yellow">
-        <v-tab v-for="article in articles" :key="article.id" ripple>Article</v-tab>
-        <v-tab-item v-for="article in articles" :key="article.id">
-          <v-card flat>
-            <img :src="article.urlToImage" width="150" height="100">
-            <p>Author : {{ article.author }}</p>
-            <p>Description : {{ article.description }}</p>
-            <p>Title : {{ article.title }}</p>
-            <p>Url : {{ article.url }}</p>
-            <object width="600" heigh="600" :data="article.url"></object>
-          </v-card>
-        </v-tab-item>
-      </v-tabs>
-
-      <div class="text-xs-center mt-3">
-        <v-btn @click="next">next Article</v-btn>
-      </div>
-    </div>
+  <v-container grid-list-lg>
+    <v-layout row>
+      <v-flex
+        xs12
+        class="text-xs-center display-1 font-weight-black my-5"
+      >{{ $route.meta.title }} News</v-flex>
+    </v-layout>
+    <v-layout row wrap v-for="article in articles" :key="article.id">
+      <v-flex xs12 class="text-xs-center font-weight-black my-5">
+        <v-card>
+          <v-responsive>
+            <img v-bind:src="article.urlToImage" height="400" class="my-3">
+            <v-container fill-height fluid>
+              <v-layout fill-height>
+                <v-flex xs12 align-end flexbox>
+                  <span class="headline">{{ article.title }}</span>
+                  <v-spacer></v-spacer>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-responsive>
+          <v-card-text>{{ article.author }} | {{ article.source.name }}</v-card-text>
+          <v-card-text>{{ article.description }}</v-card-text>
+          <v-card-actions>
+            <v-btn outline block color="green" :href="article.url" target="_blank">Read Full Article</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
 import axios from 'axios';
 export default {
-    created() {
-        axios
-            .get(
-                'https://newsapi.org/v2/top-headlines?country=gb&category=business&pageSize=20&apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3'
-            )
-            .then(response => {
-                console.log(response);
-                this.articles = response.data.articles;
-            });
-    },
-    data() {
+    data: function() {
         return {
-            active: null,
-            category: '',
-            articles: [],
-            text:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+            articles: []
         };
     },
-    methods: {
-        next() {
-            const active = parseInt(this.active);
-            this.active = active < 7 ? active + 1 : 0;
-        }
+    mounted: function() {
+        var that = this;
+        var url =
+            'https://newsapi.org/v2/top-headlines?' +
+            'country=us&' +
+            'apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3';
+        var req = new Request(url);
+        fetch(req)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data);
+                that.articles = data.articles;
+            });
     }
 };
 </script>
