@@ -10,9 +10,14 @@
     <v-content transition="slide-x-transition">
       <div id="app">
         <app-search v-on:newsChanged="getNews"></app-search>
+        <label for="title">Title</label>
+        <input type="radio" id="title" value="title" v-model="sortCriteria">
+        <br>
+        <label for="author">Author</label>
+        <input type="radio" id="author" value="author" v-model="sortCriteria">
 
         <app-article
-          v-for="newsArticle in articles"
+          v-for="newsArticle in sortedArticles"
           v-bind:data="newsArticle"
           :key="newsArticle.id"
         ></app-article>
@@ -33,7 +38,8 @@ export default {
     data: function() {
         return {
             articles: [],
-            searchQ: 'politics'
+            searchQ: 'politics',
+            sortCriteria: ''
         };
     },
     methods: {
@@ -56,6 +62,22 @@ export default {
                     that.articles = data.articles;
                 });
             this.searchQ = ''; //Reset searchQ value to empty string to clear search field
+            this.sortCriteria = '';
+        },
+        sortBy: function(arr, sortCrit) {
+            return arr.sort(function(a, b) {
+                if (a[sortCrit] > b[sortCrit]) return 1;
+                if (a[sortCrit] < b[sortCrit]) return -1;
+                return 0;
+            });
+        }
+    },
+    computed: {
+        sortedArticles: function() {
+            if (this.sortCriteria) {
+                return this.sortBy(this.articles, this.sortCriteria);
+            }
+            return this.articles;
         }
     },
     components: {
