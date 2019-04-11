@@ -1,5 +1,9 @@
 # Jordanston Echo
 
+### Project setup
+```
+npm install
+```
 
 ### Run Development build
 ```
