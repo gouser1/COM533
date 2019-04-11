@@ -4,93 +4,27 @@
       href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons"
       rel="stylesheet"
     >
-
     <navigation></navigation>
+    <!-- Loads navigation component -->
 
     <v-content transition="slide-x-transition">
-      <div id="app">
-        <app-search v-on:newsChanged="getNews"></app-search>
-        <label for="title">Title</label>
-        <input type="radio" id="title" value="title" v-model="sortCriteria">
-        <br>
-        <label for="author">Author</label>
-        <input type="radio" id="author" value="author" v-model="sortCriteria">
-
-        <app-article
-          v-for="newsArticle in sortedArticles"
-          v-bind:data="newsArticle"
-          :key="newsArticle.id"
-        ></app-article>
-      </div>
       <router-view></router-view>
-      <politics></politics>
+      <Footer></Footer>
+      <!-- Loads Footer component -->
     </v-content>
   </v-app>
 </template>
 
 <script>
+//Imported components from '/components' to be displayed
 import Navigation from '@/components/Navigation';
-import Article from '@/components/Article.vue';
-import Search from '@/components/Search.vue';
-import Politics from '@/components/Politics';
-import axios from 'axios';
+import Footer from '@/components/Footer';
 export default {
-    data: function() {
-        return {
-            articles: [],
-            searchQ: 'politics',
-            sortCriteria: ''
-        };
-    },
-    methods: {
-        getNews: function(query) {
-            var that = this;
-            var url =
-                'https://newsapi.org/v2/everything?' +
-                //'country=us&' +
-                'q=' +
-                query +
-                '&' +
-                'apiKey=aaffa4aad4294bb0af6a1b3f7248e1b3';
-            var req = new Request(url);
-            fetch(req)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(data) {
-                    console.log(data);
-                    that.articles = data.articles;
-                });
-            this.searchQ = ''; //Reset searchQ value to empty string to clear search field
-            this.sortCriteria = '';
-        },
-        sortBy: function(arr, sortCrit) {
-            return arr.sort(function(a, b) {
-                if (a[sortCrit] > b[sortCrit]) return 1;
-                if (a[sortCrit] < b[sortCrit]) return -1;
-                return 0;
-            });
-        }
-    },
-    computed: {
-        sortedArticles: function() {
-            if (this.sortCriteria) {
-                return this.sortBy(this.articles, this.sortCriteria);
-            }
-            return this.articles;
-        }
-    },
     components: {
         Navigation,
-        Politics,
-        'app-article': Article,
-        'app-search': Search
-    },
-    mounted: function() {
-        this.getNews(this.searchQ);
+        Footer
     }
 };
 </script>
-
 
 <style></style>

@@ -1,11 +1,7 @@
-# com533
+# Jordanston Echo
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
+### Run Development build
 ```
 npm run serve
 ```
@@ -15,15 +11,8 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run production build
 ```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+serve -s dist
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -2,8 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
-
-
 Vue.use(Router);
 
 export default new Router({
@@ -12,7 +10,10 @@ export default new Router({
     routes: [{
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: {
+                title: 'Home'
+            }
         },
         {
             path: '/popular',
@@ -20,8 +21,7 @@ export default new Router({
             meta: {
                 title: 'Popular'
             },
-            component: () =>
-                import('./views/Popular.vue')
+            component: () => import('./views/Popular.vue')
         },
         {
             path: '/business',
@@ -29,8 +29,7 @@ export default new Router({
             meta: {
                 title: 'Business'
             },
-            component: () =>
-                import('./views/Business.vue')
+            component: () => import('./views/Business.vue')
         },
         {
             path: '/entertainment',
@@ -38,8 +37,7 @@ export default new Router({
             meta: {
                 title: 'Entertainment'
             },
-            component: () =>
-                import('./views/Entertainment.vue')
+            component: () => import('./views/Entertainment.vue')
         },
         {
             path: '/technology',
@@ -47,8 +45,7 @@ export default new Router({
             meta: {
                 title: 'Technology'
             },
-            component: () =>
-                import('./views/Technology.vue')
+            component: () => import('./views/Technology.vue')
         },
         {
             path: '/science',
@@ -56,8 +53,7 @@ export default new Router({
             meta: {
                 title: 'Science'
             },
-            component: () =>
-                import('./views/Science.vue')
+            component: () => import('./views/Science.vue')
         },
         {
             path: '/sport',
@@ -65,8 +61,7 @@ export default new Router({
             meta: {
                 title: 'Sport'
             },
-            component: () =>
-                import('./views/Sport.vue')
-        },
+            component: () => import('./views/Sport.vue')
+        }
     ]
 });
